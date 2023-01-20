@@ -5,8 +5,8 @@ En este repositorio se subirán las actualizaciones de las tareas realizadas en 
 - Adrian Aguilera Moreno - @Aguilera450
 
 ## Masters:
-- Jorge Urrutia Galicia    - urrutia@matem.unam.mx
-- Adriana Ramírez Vigueras - adriana.rv@ciencias.unam.mx
+- Jorge Urrutia Galicia    - http://www.matem.unam.mx/~urrutia/
+- Adriana Ramírez Vigueras - http://www.matem.unam.mx/~tita
 
 ### Ayudante:
 - Diego Jesús Favela Nava  - diegofavela@ciencias.unam.mx
