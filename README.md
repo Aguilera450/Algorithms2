@@ -12,18 +12,18 @@ En este repositorio se subirán las actualizaciones de las tareas realizadas en 
 - Diego Jesús Favela Nava  - diegofavela@ciencias.unam.mx
 
 ## Temario:
-I. Algoritmos voraces.
-II. Divide y vencerás.
-III. Programación dinámica.
-IV. Análisis amortizado.
-V. Algoritmos de aproximación.
-VI. Algoritmos aleatorios.
-VII. Aplicaciones de flujos en redes y emparejamientos.
-VIII. Clasificación.
-IX. Iluminación.
-X. Programación lineal.
-XI. Dualidad.
-XII. Algunos resultados clásicos y recientes de geometría computacional y discreta.
+- Algoritmos voraces.
+- Divide y vencerás.
+- Programación dinámica.
+- Análisis amortizado.
+- Algoritmos de aproximación.
+- Algoritmos aleatorios.
+- Aplicaciones de flujos en redes y emparejamientos.
+- Clasificación.
+- Iluminación.
+- Programación lineal.
+- Dualidad.
+- Algunos resultados clásicos y recientes de geometría computacional y discreta.
 
 ## Bibliografía
 1. Satyan L. Devadoss y Joseph O'Rourke. Discrete and Computational Geometry. Princeton University Press 2011.
