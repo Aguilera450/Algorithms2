@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Introducción.}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Categorías.}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Alternativas.}{5}{0}{1}
+\beamer@subsectionintoc {1}{3}{Agrupación Espacial.}{6}{0}{1}
