@@ -1,0 +1,13 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Experimentación:
+
+\begin{frame}[fragile]{Experimentación:}{Experimento 2.}
+
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+      \includegraphics[width=\textwidth]{./Imagenes/Exp2.png}
+      \caption*{Agrupamiento anidado.}
+    \end{subfigure}
+  \end{figure}
+
+\end{frame}

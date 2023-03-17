@@ -6,6 +6,57 @@
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Tikz
+\usepackage{tkz-graph}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+% def https://tex.stackexchange.com/questions/214400/tikz-dashes-and-closed-curves
+\usetikzlibrary{decorations}
+
+\tikzset{
+  cycled dash pattern/.code args={on #1 off #2}{
+    % Use csname so catcode of @ doesn't have do be changed.
+    \csname tikz@addoption\endcsname{%
+      \pgfgetpath\currentpath%
+      \csname pgf@decorate@parsesoftpath\endcsname{\currentpath}{\currentpath}%
+      % Length of path
+      \pgfmathparse{\csname pgf@decorate@totalpathlength\endcsname}\let\lc=\pgfmathresult%
+      % Length of pattern
+      \pgfmathparse{#1+#2}\let\lp=\pgfmathresult%
+      % Scaling factor for pattern
+      \pgfmathparse{\lc/(\lp*round(\lc/\lp))}\let\f=\pgfmathresult%
+      % Actually scale the pattern
+      \pgfmathparse{#1*\f}\let\on=\pgfmathresult%
+      \pgfmathparse{#2*\f}\let\off=\pgfmathresult%
+      % Tell PGF to dash this line
+      \pgfsetdash{{\on}{\off}}{0pt}}%
+  }
+}
+% Def. Dr. César.
+\usetikzlibrary{shapes,calc}
+\tikzstyle{edge}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.1pt]
+\tikzstyle{edgeDottedR}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.1pt, dashed, ->] %  dashed
+\tikzstyle{edgeDottedL}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.1pt, dashed, <-] %  dashed
+\tikzstyle{edgeDotted}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.1pt, dashed] %  dashed
+\tikzstyle{edgeC}=[curve to, out=270,in=270,relative, dashed]
+\tikzstyle{blueE}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.5pt, blue]
+\tikzstyle{redE}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.5pt, red]
+\tikzstyle{blackV}=[circle, fill=black, minimum size=6pt, inner sep=0pt, outer sep=0pt]
+\tikzstyle{brownV}=[circle, fill=brown, draw, minimum size=6pt, line width=0.75pt, inner sep=0pt, outer sep=0pt]
+\tikzstyle{brownE}=[shorten <=2pt, shorten >=2pt, >=stealth, line width=1.5pt, brown]
+\tikzstyle{blueV}=[circle, fill=blue, draw, minimum size=6pt, line width=0.75pt, inner sep=0pt, outer sep=0pt]
+\tikzstyle{redV}=[circle, fill=red, draw, minimum size=6pt, line width=0.75pt, inner sep=0pt, outer sep=0pt]
+\tikzstyle{redSV}=[semicircle, fill=red, minimum size=3pt, inner sep=0pt, outer sep=0pt, rotate=225]
+\tikzstyle{blueSV}=[semicircle, fill=blue, minimum size=3pt, inner sep=0pt, outer sep=0pt, rotate=225]
+\tikzstyle{blackSV}=[semicircle, fill=black, minimum size=3pt, inner sep=0pt, outer sep=0pt, rotate=225]
+\tikzstyle{vertex}=[circle, draw, minimum size=6pt, line width=0.75pt, inner sep=0pt, outer sep=0pt]
+\tikzstyle{yellowV}=[circle, fill=yellow, draw, minimum size=6pt, line width=0.75pt, inner sep=0pt, outer sep=0pt]
+\tikzstyle{greenV}=[circle, fill=green, draw, minimum size=6pt, line width=0.75pt, inner sep=0pt, outer sep=0pt]
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Include Figure
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -72,6 +123,25 @@
 \input{./04AgrupacionEspacial}
 \input{./05AgrupacionEspacial}
 
+\section{Algoritmo de agrupación espacial..}
+\subsection{Ejecución.}
+\input{./06Algoritmo}
+\input{./07Algoritmo}
+\input{./08Algoritmo}
+\input{./09Algoritmo}
+\input{./10Algoritmo}
+\input{./11Algoritmo}
+\subsection{Algoritmo.}
+\input{./26Algoritmo}
+\input{./27Algoritmo}
+\input{./28Algoritmo}
+\subsection{Complejidad.}
+\input{./29Algoritmo}
+\subsection{Experimentación y resultados con grandes cantidades de datos.}
+\input{./30Experimentos}
+\input{./31Experimentos}
+% Fin
+\input{./32Fin}
 %\def\beamer@mytheme@style{green}
 
 %\subsection{Algoritmo.}

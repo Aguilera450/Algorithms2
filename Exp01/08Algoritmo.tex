@@ -1,0 +1,327 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algoritmo: Iteración 2.
+
+\begin{frame}[fragile]{Algoritmo:}{Iteración 2.}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE 1
+  \begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      %% Primer bloque:
+      \node(A) [blueV, label=180:$A$] at (1, 5){};
+      \node(B) [blueV, label=180:$B$] at (1, 6){};
+      \node(C) [blueV, label=270:$C$] at (1, 4){};
+      \node(D) [blueV, label=350:$D$] at (2, 5){};
+      \node(E) [blueV, label=270:$E$] at (2, 4){};
+      %% Segundo bloque:
+      \node(S) [vertex, label=0:$S$] at (1,10){};
+      \node(F) [vertex, label=0:$F$] at (2, 9){};
+      \node(G) [vertex, label=30:$G$] at (3, 9){};
+      \node(H) [vertex, label=30:$H$] at (2, 8){};
+      \node(I) [vertex, label=270:$I$] at (3, 8){};
+      \node(J) [vertex, label=270:$J$] at (4, 8){};
+      \node(K) [vertex, label=270:$K$] at (4, 7){};
+      \node(L) [vertex, label=270:$L$] at (5, 7){};
+      \node(M) [redV, label=270:$M$] at (4, 6){};
+      \node(N) [redV, label=000:$N$] at (5, 6){};
+      \node(O) [redV, label=270:$O$] at (5, 5){};
+      \node(P) [redV, label=270:$P$] at (5, 4){};
+      \node(Q) [redV, label=90:$Q$] at (6.5, 4.5){};
+      \node(R) [redV, label=270:$R$] at (6, 4){};
+      %% Tercer bloque:
+      \node(T) [vertex, label=0:$T$] at (8.5,9){};
+      \node(Z) [vertex, label=0:$Z$] at (9,8){};
+      \node(V) [vertex, label=0:$V$] at (8,7){};
+      \node(U) [yellowV, label=0:$U$] at (9,6){};
+      %% Rectas:
+      \draw[edge] (-1,4.3) to (10,4.3); % l_2
+      \draw[edge] (-1,7.3) to (10,7.3); % l_1
+      % Distancia d:
+      \draw[edgeDottedL] (-0.4,4.3) to (-0.4,5.5); % distancia abajo.
+      \draw[edgeDottedR] (-0.4,6) to (-0.4,7.3);   % distancia arriba.
+      % Nombres:
+      \node (L) at (-0.4,5.8){$d$};
+      \node (L) at (10.3,4.3){$\ell_2$};
+      \node (L) at (10.3,7.3){$\ell_1$};
+      
+      % Frente de Avance:
+      \draw[brownE] (A) to (B);
+      \draw[brownE] (A) to (D);
+      \draw[brownE] (D) to (M);
+      \draw[brownE] (M) to (N);
+      \draw[brownE] (N) to (O);
+      \draw[brownE] (O) to (Q);
+      \draw[brownE] (Q) to (U);
+      % Intento de círculo:
+      %\draw[line with = 0.5pt, dash pattern = on 1pt off 2pt]circle(0.655cm);
+      % The built-in version for comparison
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, red] (6.5,4.5) circle(1);
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, yellow] (9,6) circle(1);
+      % Our version with automatically adapted pattern length
+      %\draw [line width=1pt, cycled dash pattern=on 4pt off 4pt] (2,0) circle(0.655);
+    \end{tikzpicture}
+  \end{figure}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo:}{Iteración 2.}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE 1
+  \begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      %% Primer bloque:
+      \node(A) [blueV, label=180:$A$] at (1, 5){};
+      \node(B) [blueV, label=180:$B$] at (1, 6){};
+      \node(C) [blueV, label=270:$C$] at (1, 4){};
+      \node(D) [blueV, label=350:$D$] at (2, 5){};
+      \node(E) [blueV, label=270:$E$] at (2, 4){};
+      %% Segundo bloque:
+      \node(S) [vertex, label=0:$S$] at (1,10){};
+      \node(F) [vertex, label=0:$F$] at (2, 9){};
+      \node(G) [vertex, label=30:$G$] at (3, 9){};
+      \node(H) [vertex, label=30:$H$] at (2, 8){};
+      \node(I) [vertex, label=270:$I$] at (3, 8){};
+      \node(J) [vertex, label=270:$J$] at (4, 8){};
+      \node(K) [vertex, label=270:$K$] at (4, 7){};
+      \node(L) [vertex, label=270:$L$] at (5, 7){};
+      \node(M) [redV, label=270:$M$] at (4, 6){};
+      \node(N) [redV, label=000:$N$] at (5, 6){};
+      \node(O) [redV, label=270:$O$] at (5, 5){};
+      \node(P) [redV, label=270:$P$] at (5, 4){};
+      \node(Q) [redV, label=90:$Q$] at (6.5, 4.5){};
+      \node(R) [redV, label=270:$R$] at (6, 4){};
+      %% Tercer bloque:
+      \node(T) [vertex, label=0:$T$] at (8.5,9){};
+      \node(Z) [vertex, label=0:$Z$] at (9,8){};
+      \node(V) [vertex, label=0:$V$] at (8,7){};
+      \node(U) [yellowV, label=0:$U$] at (9,6){};
+      %% Rectas:
+      \draw[edge] (-1,4.3) to (10,4.3); % l_2
+      \draw[edge] (-1,7.3) to (10,7.3); % l_1
+      % Distancia d:
+      \draw[edgeDottedL] (-0.4,4.3) to (-0.4,5.5); % distancia abajo.
+      \draw[edgeDottedR] (-0.4,6) to (-0.4,7.3);   % distancia arriba.
+      % Nombres:
+      \node (L) at (-0.4,5.8){$d$};
+      \node (L) at (10.3,4.3){$\ell_2$};
+      \node (L) at (10.3,7.3){$\ell_1$};
+      
+      % Frente de Avance:
+      \draw[brownE] (A) to (B);
+      \draw[brownE] (A) to (D);
+      \draw[brownE] (D) to (M);
+      \draw[brownE] (M) to (N);
+      \draw[brownE] (N) to (O);
+      \draw[brownE] (O) to (Q);
+      \draw[brownE] (Q) to (U);
+
+      % Proyecciones:
+      \node(PV) [blackV, label=270:$V'$] at (8, 5.4){};
+      \draw[edgeDotted] (V) to (PV);
+      % Intento de círculo:
+      %\draw[line with = 0.5pt, dash pattern = on 1pt off 2pt]circle(0.655cm);
+      % The built-in version for comparison
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, red] (6.5,4.5) circle(1);
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, yellow] (9,6) circle(1);
+      % Our version with automatically adapted pattern length
+      %\draw [line width=1pt, cycled dash pattern=on 4pt off 4pt] (2,0) circle(0.655);
+    \end{tikzpicture}
+  \end{figure}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo:}{Iteración 2.}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE 1
+  \begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      %% Primer bloque:
+      \node(A) [blueV, label=180:$A$] at (1, 5){};
+      \node(B) [blueV, label=180:$B$] at (1, 6){};
+      \node(C) [blueV, label=270:$C$] at (1, 4){};
+      \node(D) [blueV, label=350:$D$] at (2, 5){};
+      \node(E) [blueV, label=270:$E$] at (2, 4){};
+      %% Segundo bloque:
+      \node(S) [vertex, label=0:$S$] at (1,10){};
+      \node(F) [vertex, label=0:$F$] at (2, 9){};
+      \node(G) [vertex, label=30:$G$] at (3, 9){};
+      \node(H) [vertex, label=30:$H$] at (2, 8){};
+      \node(I) [vertex, label=270:$I$] at (3, 8){};
+      \node(J) [vertex, label=270:$J$] at (4, 8){};
+      \node(K) [vertex, label=270:$K$] at (4, 7){};
+      \node(L) [vertex, label=270:$L$] at (5, 7){};
+      \node(M) [redV, label=270:$M$] at (4, 6){};
+      \node(N) [redV, label=000:$N$] at (5, 6){};
+      \node(O) [redV, label=270:$O$] at (5, 5){};
+      \node(P) [redV, label=270:$P$] at (5, 4){};
+      \node(Q) [redV, label=90:$Q$] at (6.5, 4.5){};
+      \node(R) [redV, label=270:$R$] at (6, 4){};
+      %% Tercer bloque:
+      \node(T) [vertex, label=0:$T$] at (8.5,9){};
+      \node(Z) [vertex, label=0:$Z$] at (9,8){};
+      \node(V) [vertex, label=0:$V$] at (8,7){};
+      \node(U) [yellowV, label=0:$U$] at (9,6){};
+      %% Rectas:
+      \draw[edge] (-1,4.3) to (10,4.3); % l_2
+      \draw[edge] (-1,7.3) to (10,7.3); % l_1
+      % Distancia d:
+      \draw[edgeDottedL] (-0.4,4.3) to (-0.4,5.5); % distancia abajo.
+      \draw[edgeDottedR] (-0.4,6) to (-0.4,7.3);   % distancia arriba.
+      % Nombres:
+      \node (L) at (-0.4,5.8){$d$};
+      \node (L) at (10.3,4.3){$\ell_2$};
+      \node (L) at (10.3,7.3){$\ell_1$};
+      
+      % Frente de Avance:
+      \draw[brownE] (A) to (B);
+      \draw[brownE] (A) to (D);
+      \draw[brownE] (D) to (M);
+      \draw[brownE] (M) to (N);
+      \draw[brownE] (N) to (O);
+      \draw[brownE] (O) to (Q);
+      \draw[brownE] (Q) to (U);
+
+      % Proyecciones:
+      \node(PV) [blackV, label=270:$V'$] at (8, 5.4){};
+      \draw[edgeDotted] (V) to (PV);
+      % Intento de círculo:
+      %\draw[line with = 0.5pt, dash pattern = on 1pt off 2pt]circle(0.655cm);
+      % The built-in version for comparison
+      \draw [line width=1pt, dash pattern=on 1pt off 2pt, black] (8,5.4) circle(1);
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, yellow] (9,6) circle(1);
+      % Our version with automatically adapted pattern length
+      %\draw [line width=1pt, cycled dash pattern=on 4pt off 4pt] (2,0) circle(0.655);
+    \end{tikzpicture}
+  \end{figure}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo:}{Iteración 2.}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE 1
+  \begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      %% Primer bloque:
+      \node(A) [blueV, label=180:$A$] at (1, 5){};
+      \node(B) [blueV, label=180:$B$] at (1, 6){};
+      \node(C) [blueV, label=270:$C$] at (1, 4){};
+      \node(D) [blueV, label=350:$D$] at (2, 5){};
+      \node(E) [blueV, label=270:$E$] at (2, 4){};
+      %% Segundo bloque:
+      \node(S) [vertex, label=0:$S$] at (1,10){};
+      \node(F) [vertex, label=0:$F$] at (2, 9){};
+      \node(G) [vertex, label=30:$G$] at (3, 9){};
+      \node(H) [vertex, label=30:$H$] at (2, 8){};
+      \node(I) [vertex, label=270:$I$] at (3, 8){};
+      \node(J) [vertex, label=270:$J$] at (4, 8){};
+      \node(K) [vertex, label=270:$K$] at (4, 7){};
+      \node(L) [vertex, label=270:$L$] at (5, 7){};
+      \node(M) [redV, label=270:$M$] at (4, 6){};
+      \node(N) [redV, label=000:$N$] at (5, 6){};
+      \node(O) [redV, label=270:$O$] at (5, 5){};
+      \node(P) [redV, label=270:$P$] at (5, 4){};
+      \node(Q) [redV, label=90:$Q$] at (6.5, 4.5){};
+      \node(R) [redV, label=270:$R$] at (6, 4){};
+      %% Tercer bloque:
+      \node(T) [vertex, label=0:$T$] at (8.5,9){};
+      \node(Z) [vertex, label=0:$Z$] at (9,8){};
+      \node(V) [greenV, label=0:$V$] at (8,7){};
+      \node(U) [yellowV, label=0:$U$] at (9,6){};
+      %% Rectas:
+      \draw[edge] (-1,4.3) to (10,4.3); % l_2
+      \draw[edge] (-1,7.3) to (10,7.3); % l_1
+      % Distancia d:
+      \draw[edgeDottedL] (-0.4,4.3) to (-0.4,5.5); % distancia abajo.
+      \draw[edgeDottedR] (-0.4,6) to (-0.4,7.3);   % distancia arriba.
+      % Nombres:
+      \node (L) at (-0.4,5.8){$d$};
+      \node (L) at (10.3,4.3){$\ell_2$};
+      \node (L) at (10.3,7.3){$\ell_1$};
+      
+      % Frente de Avance:
+      \draw[brownE] (A) to (B);
+      \draw[brownE] (A) to (D);
+      \draw[brownE] (D) to (M);
+      \draw[brownE] (M) to (N);
+      \draw[brownE] (N) to (O);
+      \draw[brownE] (O) to (Q);
+      \draw[brownE] (Q) to (U);
+
+      % Proyecciones:
+      %\node(PV) [blackV, label=270:$V'$] at (8, 5.4){};
+      %\draw[edgeDotted] (V) to (PV);
+      % Intento de círculo:
+      %\draw[line with = 0.5pt, dash pattern = on 1pt off 2pt]circle(0.655cm);
+      % The built-in version for comparison
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, black] (8,5.4) circle(1);
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, yellow] (9,6) circle(1);
+      % Our version with automatically adapted pattern length
+      %\draw [line width=1pt, cycled dash pattern=on 4pt off 4pt] (2,0) circle(0.655);
+    \end{tikzpicture}
+  \end{figure}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frame}
+
+\begin{frame}[fragile]{Algoritmo:}{Iteración 2.}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE 1
+  \begin{figure}[ht!]
+    \centering
+    \begin{tikzpicture}
+      %% Primer bloque:
+      \node(A) [blueV, label=180:$A$] at (1, 5){};
+      \node(B) [blueV, label=180:$B$] at (1, 6){};
+      \node(C) [blueV, label=270:$C$] at (1, 4){};
+      \node(D) [blueV, label=350:$D$] at (2, 5){};
+      \node(E) [blueV, label=270:$E$] at (2, 4){};
+      %% Segundo bloque:
+      \node(S) [vertex, label=0:$S$] at (1,10){};
+      \node(F) [vertex, label=0:$F$] at (2, 9){};
+      \node(G) [vertex, label=30:$G$] at (3, 9){};
+      \node(H) [vertex, label=30:$H$] at (2, 8){};
+      \node(I) [vertex, label=270:$I$] at (3, 8){};
+      \node(J) [vertex, label=270:$J$] at (4, 8){};
+      \node(K) [redV, label=270:$K$] at (4, 7){};
+      \node(L) [redV, label=270:$L$] at (5, 7){};
+      \node(M) [redV, label=270:$M$] at (4, 6){};
+      \node(N) [redV, label=000:$N$] at (5, 6){};
+      \node(O) [redV, label=270:$O$] at (5, 5){};
+      \node(P) [redV, label=270:$P$] at (5, 4){};
+      \node(Q) [redV, label=90:$Q$] at (6.5, 4.5){};
+      \node(R) [redV, label=270:$R$] at (6, 4){};
+      %% Tercer bloque:
+      \node(T) [vertex, label=0:$T$] at (8.5,9){};
+      \node(Z) [vertex, label=0:$Z$] at (9,8){};
+      \node(V) [greenV, label=0:$V$] at (8,7){};
+      \node(U) [yellowV, label=0:$U$] at (9,6){};
+      %% Rectas:
+      \draw[edge] (-1,4.3) to (10,4.3); % l_2
+      \draw[edge] (-1,7.3) to (10,7.3); % l_1
+      % Distancia d:
+      \draw[edgeDottedL] (-0.4,4.3) to (-0.4,5.5); % distancia abajo.
+      \draw[edgeDottedR] (-0.4,6) to (-0.4,7.3);   % distancia arriba.
+      % Nombres:
+      \node (L) at (-0.4,5.8){$d$};
+      \node (L) at (10.3,4.3){$\ell_2$};
+      \node (L) at (10.3,7.3){$\ell_1$};
+      
+      % Frente de Avance:
+      \draw[brownE] (A) to (B);
+      \draw[brownE] (A) to (D);
+      \draw[brownE] (D) to (M);
+      \draw[brownE] (M) to (N);
+      \draw[brownE] (N) to (O);
+      \draw[brownE] (O) to (Q);
+      \draw[brownE] (Q) to (U);
+
+      % Proyecciones:
+      %\node(PV) [blackV, label=270:$V'$] at (8, 5.4){};
+      %\draw[edgeDotted] (V) to (PV);
+      % Intento de círculo:
+      %\draw[line with = 0.5pt, dash pattern = on 1pt off 2pt]circle(0.655cm);
+      % The built-in version for comparison
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, black] (8,5.4) circle(1);
+      %\draw [line width=1pt, dash pattern=on 1pt off 2pt, yellow] (9,6) circle(1);
+      % Our version with automatically adapted pattern length
+      %\draw [line width=1pt, cycled dash pattern=on 4pt off 4pt] (2,0) circle(0.655);
+    \end{tikzpicture}
+  \end{figure}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{frame}

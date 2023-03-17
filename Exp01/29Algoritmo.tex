@@ -1,0 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algoritmo:
+
+\begin{frame}[fragile]{Algoritmo:}{Análisis de Complejidad.}
+  \begin{enumerate}
+  \item \textit{Inicialización.} Ordenar nuestro conjunto de puntos por comparaciones respecto
+    al sentido de nuestro barrido nos toma $\mathcal{O}(n \log n)$.
+  \item \textit{Barrido.} Al realizar una proyección para $p_i$ en AF debemos realizar una
+    búsqueda en nuestro conjunto formado por AF (que hereda el orden de nuestro conjunto de puntos).
+    Esto nos toma $\mathcal{O}(\log m)$ donde $m$ es el tamaño de AF. La complejidad total es $\mathcal{O}(n \log n)$.
+  \item \textit{Finalización.} Fusionar los conglomerados se realiza en $c \cdot n \in \mathcal{O}(n).$
+  \end{enumerate}
+  
+  \[\therefore \text{ La complejidad total del algoritmo esta contenida en } \mathcal{O}(n \log n).\]
+\end{frame}
