@@ -1,0 +1,16 @@
+%%%%%%%%%%% Exposición 01
+\subsection[Expositor: Adrián Aguilera.]{Un algoritmo de barrido de línea para agrupamiento espacial.}
+\textbf{Obejetivo:} Agrupar un conjunto de puntos $P$ en el plano de manera
+jerárquica, por medio de la distancia que los separa entre sí. \newline
+
+\textbf{Desarrollo:} El algoritmo consiste en, dadas dos líneas
+$s_1$ y $s_2$, y $P$ ordenado. Entonces barremos $P$ con ambas
+líneas y dejando una separación $d$ entre $s_1$ y $s_2$. \newline
+
+En la primer iteración, agrupamos los puntos a una cercanía $\frac{d}{2}$ y coloreamos
+bajo un mismo color los puntos que han sido agrupados en un mismo punto. En esta iteración
+creamos el FRENTE DE AVANCE (AF), que esta dado por la trayectoria entre los puntos
+coloreados a este punto. \newline
+
+En la $i$-ésima iteración,
+
