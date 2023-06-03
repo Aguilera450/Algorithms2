@@ -1,0 +1,35 @@
+%%%%%%%%%%% Exposición 01
+\subsection[Expositor: Adrián Aguilera.]{Un algoritmo de barrido de línea para agrupamiento espacial.}
+\textbf{Obejetivo:} Agrupar un conjunto de puntos $P$ en el plano de manera
+jerárquica, por medio de la distancia que los separa entre sí. \newline
+
+\textbf{Desarrollo:} El algoritmo consiste en, dadas dos líneas
+$s_1$ y $s_2$, y $P$ ordenado. Entonces barremos $P$ con ambas
+líneas y dejando una separación $d$ entre $s_1$ y $s_2$. Diremos que
+el espacio entre $s_1$ y $s_2$ será llamado ``manga''.\newline
+
+En la primer iteración, agrupamos los puntos a una cercanía $\frac{d}{2}$ y coloreamos
+bajo un mismo color los puntos que han sido agrupados en un mismo punto. En esta iteración
+creamos el FRENTE DE AVANCE (AF), que esta dado por la trayectoria entre los puntos
+coloreados a este punto. \newline
+
+En la $i$-ésima iteración, sacamos los puntos de AF que no se encuentren dentro de la manga
+y reconstruimos AF con los puntos dentro de la manga en este momento. Obtengamos las proyecciones, a AF,
+de los puntos que vayan entrando a la manga, digamos $P(v)$. Así, asignamos un grupo a los puntos
+tales que su proyección esté más cerca, por a lo más $\frac{d}{2}$,  a un punto con color asignado en AF.
+Si la proyección no es cercana a nimgún punto en AF y el propio punto no es cercano a ningún punto con color,
+entonces creamos un nuevo grupo. Si en algún momento dos grupos se ven unidos por un nuevo punto (que esta
+cerca de puntos con colores distintos), entonces le asignamos color al grupo con menor cantidad de elementos.
+
+\textbf{Obs.} Nótese que $P(v)$ podría no tener imagen cuando no existe una proyección en vértical con AF.
+\newline
+
+\textit{Análisis de complejidad.}
+\begin{enumerate}
+\item Ordenar $P$ nos toma $\mathcal{O}(n \log_2 n)$.
+\item Mover la manga y realizar las iteraciones nos toma $\mathcal{O}(n \log n)$. Esto gracias a que $d$ es constante
+  respecto a la altura (Y) del conjunto de puntos.
+\item Recolorear grupos nos toma $c$, y a lo más $\mathcal{O}(c\cdot n)$.
+\end{enumerate}
+Concluimos una complejidad de
+\[\therefore\: \mathcal{O}(n \log_2 n) + \mathcal{O}(n \log n) + \mathcal{O}(c\cdot n) = \mathcal{O}(n \log n).\]

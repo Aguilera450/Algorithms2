@@ -1,0 +1,34 @@
+%%%%%%%%%%% Exposición 03
+\subsection[Expositor: Zayra Paulina Galván Ordoñez.]{Un problema simple de caminos alternos.}
+\textbf{Obejetivo:} Resolver el problema de Putman para una cadena círcular partícular y dar el conjunto de posibles caminos
+en una gráfica que se pueden tomar para llegar a la palabra dada, en caso de ser admisible. Esto es, ¿de cuántas maneras
+podemos formar la cadena siempre que sea admisible?.\newline
+
+\textbf{Desarrollo:} Nos basamos en las reglas de construcción:
+\begin{itemize}
+\item La palabra vacía es válida.
+\item $abW$, dónde $W$ es no terminal (en adelante se omite la explicación).
+\item $aWb$.
+\item $bWa$.
+\item $Wab$.
+\end{itemize}
+ahora, debemos contar las posiciones en la palabra círcular $c$. Enumeremos carácter
+a carácter con $s_i$ y cuán queramos acceder a un carácter $j > |c|$, entonces buscaremos
+el carácter en la posición $j \mod c$. Utilizaremos la notación $W(i, j)$ tal que iniciaremos
+en el carácter $i$ y elijiremos los siguientes $k \cdot j$ carácteres de manera círcular y donde
+$k$ es el número de carácteres de la palabra por nivel de jerárquia. \newline
+
+¿Qué son los niveles de jerárquia? Les llamo partícularmente a los niveles que se forman en nuestra
+gráfica, iniciando con la vacía, luego con $W(i,1), W(i,2), \dotsm$\newline
+
+Ya definidos los niveles, entonces tenemos como ``fuente'' a la palabra vacía y como ``sumidero'' a la
+palabra círcular objetivo, así basta bajar desde la fuente al sumidero en forma de aristas orientadas
+para saber cuántas maneras hay de formar la palabra. Las palabras relacionadas por una arista serán
+aquellas que procedan por medio de una regla de producción (de las ya mencionadas). \newline
+
+Si la palabra círcular es no-admisible, entonces no hay manera de llegar por un camino desde la fuente
+al sumidero. \newline
+
+\textit{Análisis de complejidad.} Basta ver que en el pero de los casos es necesario construir la gráfica
+que por cada nodo inicial (donde nace la arista orientada) tenga relación con todos los nodos en el siguiente
+nivel, en general esto es un orden cuadrático y por tanto la complejidad de nuestro algoritmo es $\mathcal{O}(n^2)$.

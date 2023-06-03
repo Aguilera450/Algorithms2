@@ -1,0 +1,71 @@
+%%%%%%%%%%% Exposición 02
+\subsection[Expositor: Ares Gael Castro Romero.]{Tres problemas de iluminación y visibilidad.}
+\textbf{Obejetivo:} Probar que
+\begin{enumerate}
+\item Para una gráfica de visibilidad en un polígono. La suma de aristas estrictamente internas
+  y estrictamente externas es al menos $\lceil \frac{3n - 1}{2} \rceil - 4$.
+\item En polígonos ortogonales el número mínimo de reflectores para iluminarlos es de $\lfloor \frac{n}{4} \rfloor$.
+\item Para polígonos convexos, existen reflectores  $f_1, f_2, f_3$ tales que $f_1 + f_2 + f_3 \geq \pi$ que iluminan
+  al polígono.
+\end{enumerate}
+
+\textbf{Desarrollo:} Esbocemos las pruebas de los resultados anteriores:
+\begin{enumerate}
+\item   Sea $P$ un polígono simple con $n$ vértices. Definimos
+  \begin{itemize}
+  \item $int(P) \rightarrow \#$ aristas estrictamente internas. 
+  \item $ext(P) \rightarrow \#$ aristas estrictamente externas.
+  \item Vértice interno de $P$ si pertenece al interior de $Conv(P)$.
+  \end{itemize}
+  \begin{center}
+    \textbf{Lema.} Sea $P$ un polígono de $n$ vértices, con $k$ vértices internos. Entonces \[ext(P) \geq k.\]
+  \end{center}
+  \begin{center}
+    \textbf{Lema.} Si $P$ tiene $k$ vértices internos, entonces \[int(P) + ext(P) \geq (n + 3) + k.\]
+  \end{center}
+  \begin{center}
+    \textbf{Lema.} Todo polígono con $k$ vértices internos puede descomponerse en $k + 1$ polígonos
+    convexos $P_1, \dotsm, P_{k + 1}$. Esta descomposición puede obtenerse de tal forma
+    que si $P_i$ tiene $n_i$ vértices $i \in [1, \dotsm, k+1]$ entonces $n_1 + \dotsm + n_{k + 1} = n + 3k$.
+  \end{center}
+  \begin{center}
+    \textbf{Lema.} Sea $P_i'$ el polígno formado por vértices reales para cada $P_i$ y sea $m_i$ el número
+    de vértices de $P_i'$. Entonces si $m_i \geq 4$, entonces cualquier arista extrictamente
+    interna de $P_i$ es intersectada por, al menos, $m_i - 3$ aristas estrictamente internas
+    de $P_i'$.
+  \end{center}
+  \begin{center}
+    \textbf{Teo.} Para cualquier polígono simple con $n$ vértices
+    \[int(P) + ext(P) \geq \lceil \frac{3n - 1}{2} \rceil - 4.\]
+  \end{center}
+  \textbf{Dem.} Supongamos que $P$ tiene $k$ vértices internos. Obtengamos una
+  partición en $k + 1$ polígonos convexos. Para cada $m_i \geq 4$ tómese una arista
+  de visibilidad estrictamente interna $e_i$ de $P_i'$.\newline
+
+  *Es fácil ver que siempre existe una triangulación $T$ de $P$ que contiene a todas las aristas
+  estrictamente internas de $P_i'$.
+  
+\item Sabemos que los ángulos en un polígono ortogonal son $\frac{\pi}{2}$ o $\frac{3\pi}{2}$. Los vértices
+  concavos son siempre de $\frac{3\pi}{2}$.
+
+  \begin{center}
+    \textbf{Lema.} Todo polígono ortogonal con $n$ vértices tine
+    $\frac{n - 4}{2}$
+    vértices concavos.
+    \begin{proof}
+      Procedamos por inducción sobre el número de vértices. Es fácil ver que sólo podemos agregar $2m$ vértices
+      a la vez, con $m \in \mathbb{Z}$. Supongamos que para $k$ vértices se cumple el lema. ¿Qué pasa con $k + 2$
+      vértices?
+      \[\frac{k - 4}{2} + 1 = \frac{k - 4 + 2}{2} = \frac{(k + 2) - 4}{2}.\]
+    \end{proof}
+  \end{center}
+  \begin{center}
+    \textbf{Def.} Un corte impar es un corte horizontal o vértical, tal que uno de los subpolígonos
+    que forma es de tamaño $4k + 2$. Con $k \in \mathbb{Z}$.
+  \end{center}
+  \begin{center}
+    \textbf{Teo.} $\lfloor \frac{n}{4} \rfloor$ lámparas son siempre son siempre suficientes y a veces necesarias
+    para iluminar cualquier polígono ortogonal con $n$ vértices.
+  \end{center}
+\item 
+\end{enumerate}

@@ -1,0 +1,35 @@
+%%%%%%%%%%% Exposición 03
+\subsection[Expositor: Raúl Nuño Valdés.]{Iluminando triángulos y rectángulos en el plano.}
+\textbf{Obejetivo:} Iluminar polígonos ortogonales y conjuntos de triángulos.\newline
+
+\textbf{Desarrollo:} Dividamos en dos el siguiente análisis:
+\begin{enumerate}
+\item Polígonos ortogonales. Análicemos dos posibles casos:
+  \begin{enumerate}
+  \item Para Rectángulos sin huecos basta con obtener una $3$-coloración, resulta que
+    un conjunto de rectángulos unidos por al menos una arista siempre admite una $3$-coloración.\newline
+
+    Después, basta encontrar el color con menos apariciones. Así, coloreamos este conjunto de rectángulos
+    con a lo más
+    \[\lfloor \frac{4n + 4}{3} \rfloor\]
+    reflectores, colocados en los vértices con el color con menos apariciones.
+  \item Para rectángulos con huecos basta con que nuestro conjunto de rectángulos admita
+    una $2$-coloración por vértices, entonces tenemos que necesitamos a lo más
+    \[\lfloor \frac{4n + 4h + 4}{3} \rfloor\]
+    luces para iluminar nuestro conjunto de rectángulos, de hecho basta con los vértices de
+    un mismo color en la $2$-coloración admitida. Nuevamente, el conjutno de rectángulos unidos
+    por al menos una arista siempre admite una $2$-coloración por vértices.\newline
+
+    Una manera de mejorar esta cota es trazando diagonales en lo que sería cada hueco, así
+    podemos aplicar la técnica para rectángulos sin huecos y disminuir la cota dada.
+  \end{enumerate}
+\item Con conjuntos de triángulos basta encontrar subregiones iluminadas adecuadamente,
+  tal que al subdividir en $2(n + 3) + 1$ regiones, estas se puedan iluminar y su conjunto unión
+  ilumine todo el conjunto de triángulos.\newline
+
+  Esto se puede mejorar un poco si nuestra gráfica subdividida en regiones es $2$-coloreada, entonces
+  basta iluminar cada vértice de un color y así obtenemos que podemos iluminar un conjunto de triángulos
+  con a lo más
+  \[\frac{4n + 10}{3}\]
+  luces. Nuevamente, se asume que la subdivisión plana resultante es $2$-coloreable.
+\end{enumerate}

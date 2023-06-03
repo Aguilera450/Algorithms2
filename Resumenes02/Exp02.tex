@@ -1,0 +1,142 @@
+%%%%%%%%%%% Exposición 02
+\subsection[Expositor: Ares Gael Castro Romero.]{Tres problemas de iluminación y visibilidad.}
+\textbf{Obejetivo:} Probar que
+\begin{enumerate}
+\item Para una gráfica de visibilidad en un polígono. La suma de aristas estrictamente internas
+  y estrictamente externas es al menos $\lceil \frac{3n - 1}{2} \rceil - 4$.
+\item En polígonos ortogonales el número mínimo de reflectores para iluminarlos es de $\lfloor \frac{n}{4} \rfloor$.
+\item Para polígonos convexos, existen reflectores  $f_1, f_2, f_3$ tales que $f_1 + f_2 + f_3 \geq \pi$ que iluminan
+  al polígono.
+\end{enumerate}
+
+\textbf{Desarrollo:} Esbocemos las pruebas de los resultados anteriores:
+\begin{enumerate}
+\item   Sea $P$ un polígono simple con $n$ vértices. Definimos
+  \begin{itemize}
+  \item $int(P) \rightarrow \#$ aristas estrictamente internas. 
+  \item $ext(P) \rightarrow \#$ aristas estrictamente externas.
+  \item Vértice interno de $P$ si pertenece al interior de $Conv(P)$.
+  \end{itemize}
+  \begin{center}
+    \textbf{Lema.} Sea $P$ un polígono de $n$ vértices, con $k$ vértices internos. Entonces \[ext(P) \geq k.\]
+  \end{center}
+  \begin{center}
+    \textbf{Lema.} Si $P$ tiene $k$ vértices internos, entonces \[int(P) + ext(P) \geq (n + 3) + k.\]
+  \end{center}
+  \begin{center}
+    \textbf{Lema.} Todo polígono con $k$ vértices internos puede descomponerse en $k + 1$ polígonos
+    convexos $P_1, \dotsm, P_{k + 1}$. Esta descomposición puede obtenerse de tal forma
+    que si $P_i$ tiene $n_i$ vértices $i \in [1, \dotsm, k+1]$ entonces $n_1 + \dotsm + n_{k + 1} = n + 3k$.
+  \end{center}
+  \begin{center}
+    \textbf{Lema.} Sea $P_i'$ el polígno formado por vértices reales para cada $P_i$ y sea $m_i$ el número
+    de vértices de $P_i'$. Entonces si $m_i \geq 4$, entonces cualquier arista extrictamente
+    interna de $P_i$ es intersectada por, al menos, $m_i - 3$ aristas estrictamente internas
+    de $P_i'$.
+  \end{center}
+  \begin{center}
+    \textbf{Teo.} Para cualquier polígono simple con $n$ vértices
+    \[int(P) + ext(P) \geq \lceil \frac{3n - 1}{2} \rceil - 4.\]
+
+    \begin{proof}
+      Supongamos que $P$ tiene $k$ vértices internos. Obtengamos una
+      partición en $k + 1$ polígonos convexos. Para cada $m_i \geq 4$ tómese una arista
+      de visibilidad estrictamente interna $e_i$ de $P_i'$.\newline
+
+      *Es fácil ver que siempre existe una triangulación $T$ de $P$ que contiene a todas las aristas
+      estrictamente internas de $P_i'$.
+      
+      Ahora, probemos que $int(P) \geq 2n - 2k - 6.$ Para cada $m_i \geq 4$, se tiene que $e_i$ se intersecta
+      por lo menos con $m_i - 3$ aristas estrictamente internas de $P_i'$. *Si $e_i \in T_{P}$ entonces las
+      aristas anteriores no pertenecen a $T$ (las triangulaciones son planas y simples). Como estas aristas
+      son estrictamente internas de $P$, tenemos que
+      \begin{eqnarray*}
+        int(P) \geq (n - 3) + \sum_{m_i \geq 4} (m_i - 3) \geq (n - 3) + \sum_{i \in [1, \dotsm, k + 1]} (m_i - 3)
+      \end{eqnarray*}
+      Observemos que
+      \begin{eqnarray*}
+        \sum_{i \in [1, \dotsm, k + 1]} (m_i - 3) = n + k - 3(k + 1) = n - 2k - 3.
+      \end{eqnarray*}
+      Así
+      \begin{eqnarray*}
+        int(P) \geq  (n - 3) + \sum_{i \in [1, \dotsm, k + 1]} (m_i - 3) =  2n - 2k - 6.
+      \end{eqnarray*}
+      Además, sabemos que $ext(P) \geq k$. Entonces
+      \[int(P) + ext(P) \geq (2n - 2k - 3) + k = 2n - k - 6.\]
+      Antes habíamos probado que $int(P) + ext(P) \geq (n - 3) + k$. Por lo que, al sumar ambos resultados
+      tenemos que
+      \begin{eqnarray*}
+        2\cdot int(P) + 2 \cdot ext(P) &\geq& (2n - k - 6) + (n - 3) + k\\
+        &\geq& 3n - k - 9 + k\\
+        &\geq& 3n - 9 \\
+        \Rightarrow int(P) + ext(P) &\geq& \big\lceil \frac{3n - 9}{2} \big\rceil\\
+        &\geq& \big\lceil \frac{3n - 8 - 1}{2} \big\rceil\\
+        &\geq& \big\lceil \frac{3n - 1}{2} - 4 \big\rceil\\
+        &\geq& \big\lceil \frac{3n - 1}{2}\big\rceil - 4.
+      \end{eqnarray*}
+    \end{proof}
+  \end{center}
+  
+\item Sabemos que los ángulos en un polígono ortogonal son $\frac{\pi}{2}$ o $\frac{3\pi}{2}$. Los vértices
+  concavos son siempre de $\frac{3\pi}{2}$.
+
+  \begin{center}
+    \textbf{Lema.} Todo polígono ortogonal con $n$ vértices tine
+    $\frac{n - 4}{2}$
+    vértices concavos.
+    \begin{proof}
+      Procedamos por inducción sobre el número de vértices. Es fácil ver que sólo podemos agregar $2m$ vértices
+      a la vez, con $m \in \mathbb{Z}$. Supongamos que para $k$ vértices se cumple el lema. ¿Qué pasa con $k + 2$
+      vértices?
+      \[\frac{k - 4}{2} + 1 = \frac{k - 4 + 2}{2} = \frac{(k + 2) - 4}{2}.\]
+    \end{proof}
+  \end{center}
+  \begin{center}
+    \textbf{Def.} Un corte impar es un corte horizontal o vértical, tal que uno de los subpolígonos
+    que forma es de tamaño $4k + 2$. Con $k \in \mathbb{Z}$.
+  \end{center}
+  \begin{center}
+    \textbf{Teo.} $\lfloor \frac{n}{4} \rfloor$ lámparas son siempre son siempre suficientes y a veces necesarias
+    para iluminar cualquier polígono ortogonal con $n$ vértices.
+  \end{center}
+
+\item Por último tenemos
+
+  \begin{center} %%Uso del "environment" definido al inicio del documento.
+    \textbf{Teo.} Sean $\alpha_1, \alpha_2, \alpha_3$ tres ángulos tales que
+    \[\alpha_1 + \alpha_2 + \alpha_3 = \pi\]
+    y sea $P$ un polígono convexo. Entonces siempre podemos colocar tres reflectores
+    de tamaño a lo más $\alpha_1, \alpha_2, \alpha_3$ con ápices sobre vértices de $P$
+    de manera que $P$ quede iluminado, y no coloquemos más de un reflector sobre cada
+    vértice de $P$.
+  \end{center}
+  \begin{proof}
+    Es fácil ver que un triángulo cumple con el teorema. Supongamos $P$ un polígono convexo con al menos $4$
+    vértices.\newline
+
+    Supongamos que $\alpha_1 \leq \alpha_2 \leq \alpha_3 \Rightarrow \alpha_2 < \frac{\pi}{2}$.  Además, cómo
+    $P$ tiene al menos $4$ vértices entonces al menos uno de los ángulos generados por sus vértices es mayor
+    o igual que $\frac{\pi}{2}$. Sea $T$ un triángulo cuyos ángulos sean $\alpha_1, \alpha_2,$ y $\alpha_3$
+    tal que:
+    \begin{enumerate}
+    \item El vértice de $T$ de tamaño $\alpha_2$ está colocado sobre un vértice $v$ de $P$ que genera un ángulo
+      mayor o igual a $\alpha_2$.
+    \item Los otros dos vértices de $T$ están colocados sobre dos puntos $x, y$ en la frontera de $P$.
+    \end{enumerate}
+    Supongamos que $x,y$ pertenecen a aristas distintas en $P$.\newline
+    
+    Análicemos dos posibles casos:
+    \begin{enumerate}
+    \item $u \not= w$. Coloquemos un reflector $f_1$ sobre $u$ iluminando la zona angular
+      determinada por $v, u, x$ y otro, $f_3$ sobre $w$ iluminado la zona angular
+      determinada por $v, w, y$. Como $f_1$ y $f_3$ no están en el interior de $C$, los
+      angulos de iluminación de $f_1$ y $f_3$ son a lo más, $\alpha_1$ y $\alpha_2$ respectivamente.
+    \item $u = w$. Sea $T'$ el triángulo determinado por el segmento que une a $x$ con
+      $y$, y las tangentes a $C$ en estos puntos. El ángulo generado en el vértice
+      $z$ de $T'$  que no está sobre $C$ es $\pi - 2\alpha_2$. Nótese que $z$ pertenece al interior
+      del triángulo $T''$ con vértices $x, y, u$ y por tanto el ángulo de $T''$ en $u$ es
+      menor que $\pi - 2\alpha_2$. Como $\alpha \leq \alpha_2 \leq \alpha_3 \leq \pi - 2\alpha_2 \leq (\pi - (\alpha_1 + \alpha_2)) = \alpha_3$.
+      Por tanto colocando un reflector de tamaño a lo más $\alpha_3$ en u iluminamos P.
+    \end{enumerate}
+  \end{proof}
+\end{enumerate}

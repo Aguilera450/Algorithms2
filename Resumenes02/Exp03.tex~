@@ -1,0 +1,23 @@
+%%%%%%%%%%% Exposición 03
+\subsection[Expositor: Juan Manuel Díaz Quiñonez.]{Localización de puntos planos mediante árboles de búsqueda persistentes.}
+\textbf{Obejetivo:} Localización de puntos.\newline
+
+\textbf{Desarrollo:} Segementamos nuestro espacio de búsqueda, por medio de un barrido de línea, en franjas.
+Ahora necesitamos guardar la información de una manera no costosa y luego realizar una búsuqeda en estas
+franjas. Nosotros emplearemos un árbol rojo-negro y por tanto bastará descender por el árbol para encontrar
+el espacio dónde se localiza nuestro punto. Para poder tener nuestras frangas almacenadas de manera eficiente
+haremos persistente nuestro árbol y con ``persistente'' nos referimos a que queremos que el árbol guarde de
+alguna manera los estados del mismo. ¿Cómos hacemos lo anterios? Fusionaremos dos técnicas, estas son
+\begin{enumerate}
+\item Técnica 1. Realizar una copia de nodo por cada eliminación o reordenamiento, con sus respectivas referencias.
+\item Técnica 2. Marcar referencias ``vivas'' (aquellas intactas) y ``muertas'' (aquellas cuáles nodos han sido borrado,
+  al menos uno de ellos).
+\end{enumerate}
+con la fusión de ambas técnicas podemos garantizar que tendremos los estados por los que pasa el árbol durante su
+construcción, sin necesidad de guardar estado por estado (este caso nos llevaría a un orden cuadrático). \newline
+
+\textit{Análisis de complejidad.} En general, esto nos toma $\mathcal{O}(k + \log n)$ por nodo,
+donde $k$ es la cantidad de punteros a ligar. Este valor es amortizado. Así, mantener la persistencia
+nos toma
+\[\therefore\: \mathcal{O}(n\cdot k + n \log n).\]
+\textbf{Obs.} La complejidad es solo la de construir nuestro árbol.

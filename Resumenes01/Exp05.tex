@@ -1,0 +1,28 @@
+%%%%%%%%%%% Exposición 03
+\subsection[Expositor: Ares Gael Castro Romero.]{Triangulaciones de Graham y hamiltonianas con centro.}
+\textbf{Obejetivo:} Triangular una nube de puntos de tal manera que podamos encontrar caminos hamiltonianos
+que entren por una arista de un triángulo\footnote{No cualquier triángulo} y salgan por otra, finalmente
+debemos encontrar un ciclo hamiltoniano.\newline
+
+\textbf{Desarrollo:} Dividamos este tema en dos subtemas, estos son:
+\begin{enumerate}
+\item \textit{Caminos hamiltonianos en triangulaciones de Graham.} Definamos un \underline{Triángulo
+  separador} $T_s$ como un triángulo del cuál sus aristas son parte de aristas en la triángulación y, además,
+  existe al menos un punto contenido por $T_s$.\newline
+  
+  Al tener la triangulación $T$ de Graham sabemos que todo triángulo separador tiene como vértice a $v_0$ desde
+  dónde se originó la triangulación. Entonces, encontrar la gráfica dual es sencillo desde este punto, pero
+  ¿Qué es la gráfica dual? Es la gráfica que se forma a partir de los centros de triángulos generados en la
+  triangulación y tales que son adyacentes si y sólo si existe una única arista entre ellos\footnote{Sólo son separados
+  por una arista.}. La gráfica dual no es una trayectoria o ábol, entonces nos quedaremos con aristas a manera
+  que cada arista sea de corte\footnote{Arista de corte. Sea $e$ una arista tal que al quitarla la gráfica se vuelve inconexa,
+  entonces $e$ es de corte.} \newline
+  
+  El árbol generado anteriormente es un camino hamiltoniano tal que pasa por todos los triángulos generados por
+  la triangulación de graham.
+  
+\item \textit{Caminos hamiltonianos en triangulaciones basadas en un centro.} A partir de un centro generamos triángulos
+  que contengan una arista en el cierre convexo y que preserven la nube de puntos como una gráfica plana. Queremos buscar
+  trayerctorias que pasen por todos los puntos en cada triángulo y que se conecte en forma de ciclo hamiltoniano. Las trayecotorias
+  se conectan saliendo y entrando por los triángulos generados con el punto central y por tanto tenemos un ciclo hamiloniano.
+\end{enumerate}

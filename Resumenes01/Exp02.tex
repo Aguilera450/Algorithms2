@@ -1,1 +1,40 @@
 %%%%%%%%%%% Exposición 02
+\subsection[Expositor: Raúl Nuño Valdés.]{Un algoritmo de barrido de línea y su aplicación en espirales interiores (pocketing).}
+\textbf{Obejetivo:} Construcción de espirales internas a un polígono dado. \newline
+
+\textbf{Desarrollo:} Una alternaiva mencionada es usar los diagramas de Voronoi. Sin embargo, la
+estrategia seguida es:
+\begin{enumerate}
+\item Ordenar nuestro arreglo de puntos.
+\item Crear nuestro polígono. \newline
+  
+  En este punto nos interesa encontrar polígonos válidos, esto lo logramos búscando en
+  el orden de las manecillas del reloj: empezamos en un punto y recorremos hasta toparnos
+  con que no podemos avanzar y eliminamos esa arista (pues no será parte de nuestro polígono
+  admisible).
+\item Eliminar colineales.\newline
+
+  No tiene sentido tener puntos colineales en el polígono, pues construiremos
+  las espirales internas a partir de estos (todos) y solo nos interesa tener segmentos, sin importar si
+  hay más de dos puntos en ellos.
+\item Encontrar un extremo (caso partícular del extremo izquierdo).\newline
+  
+  Esto lo usamos para empezar el barrido y lo podemos encontrar en tiempo constante si ordenamos nuestro
+  arreglo o en tiempo líneal en otro caso.
+\item Barrido de línea. \newline
+  
+  Nos toma $\mathcal{O}(\log n)$ por punto, pues empezamos a contruir las espirales.
+\item Encontrar intersecciones entre monótonas.\newline
+  
+  Las intersecciones serán parte de la construcción de la espiral.  
+\item Obtener el arreglo de intersecciones. \newline
+  
+  Lo obtenemos del paso anterior en $\mathcal{O}(n \log n)$.
+\end{enumerate}
+
+\textbf{Obs.} El algoritmos consiste en ir acotando la súperficie interna del polígono e ir formando las espirales en estas
+áreas. Debemos saber cuándo parar, esto es cuándo acotamos la sección llamada isla, en este punto el polígno debe tener
+espirales internas y tener estas construcciones terminadas.\newline
+
+\textit{Análisis de complejidad.} La complejidad esta contenida en
+\[\therefore\: \mathcal{O}(n) + \mathcal{O}(n \log n) = \mathcal{O}(n \log n).\]

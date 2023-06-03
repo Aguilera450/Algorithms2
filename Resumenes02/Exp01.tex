@@ -1,0 +1,59 @@
+%%%%%%%%%%% Exposición 01
+\subsection[Expositor: Adrián Aguilera.]{Punto de visibilidad.}
+\textbf{Obejetivo:} Dado un punto $q$ \textit{kernel} de un polígono $P$,
+queremos encontrar el polígono construido a partir de segmentos de la
+frontera de $P$ tal que $q$ puede visualizarlo. \newline
+
+\textbf{Desarrollo:} Existen diversos tipos de polígonos interesantes. Nos centraremos
+en polígonos simples. Dentro de los polígonos simples existen \textit{polígonos con revoluciones}
+y \textit{polígonos sin revoluciones}. El algoritmo de \textit{lee} para encontrar el polígono de
+visibilidad dado $q$ se comporta bien en polígonos sin revoluciones, así analicemos un algoritmo de
+preprocesamiento:\newline
+
+\textbf{Algoritmo de Bhattacharya:} Poda de polígonos.
+\begin{enumerate}
+\item Tracemos una horizontal $\ell$ a $P$ a partir de $q$.
+\item Tomemos la primer intersección de $\ell$ con la frontera de $P$, digamos $x_1$, cómo nuestro punto de inicio para recorrer
+  la frontera de nuestro polígono $P$.
+\item Clasifiquemos a partir de $x_1$ a los puntos de intersección de $\ell$ con $P$ cómo bajos y altos. Inicialmente, $x_1$
+  es un punto alto si fue escogido a la derecha de $q$, en otro caso se clasificó cómo bajo.
+\item Recorriendo en sentido \textit{anti-horario} clasificamos al siguiente punto de intersección de $\ell$ con $P$ cómo
+  la clasificación contraria a la de $x_1$ y así consecutivamente. En alguna iteración llegaremos nevamente a $x_1$, pues
+  el polígono es una trayectoria cíclica. Sin embargo, no reclasificaremos a $x_1$.
+\item El siguiente paso se basa en encontrar a las primeras aristas de $\ell$ que están acotadas internamente por $P$, tales
+  que sus extremos son puntos clasificados como: bajo-alto o alto-bajo, esto es, que tengan distinta clasificación.
+\item Al encontrar estás aristas, y que sean más cercanas a $q$, recortamos nuestro polígono uniendo las aristas encontradas
+  a $P$ y descartando el resto de $P$ ($P$ después de cada arista). Esto nos garantiza que el polígono $P'$ resultante no tenga
+  revoluviones.
+\end{enumerate}
+\textit{Análisis de complejidad.}
+\begin{enumerate}
+\item Intersectar $\ell$ nos toma $\mathcal{O}(n)$.
+\item Clasificar las intersecciones de $\ell$ en $P$ requiere recorrer $P$ y nos toma $\mathcal{O}(n)$.
+\item Encontrar las aristas que cunplan tener extremos clasificados de distinta manera y unirlos a $P$ nos
+  toma $\mathcal{O}(n)$, pues en el peor caso hay que recorrer $P$ nuevamente.
+\item Concluimos que nuestro algoritmo tiene una complejidad contenida en $\mathcal{O}(n)$.
+\end{enumerate}
+Ahora, supongamos que $P$ ha sido podado y no tiene revoluciones. Analicemos el siguiente algoritmo para encontrar el
+polígono de visibilidad en $P$ dado $q$:\newline
+
+\textbf{Algoritmo de Lee:} Encontrar el polígono de visibilidad de $P$ dado $q$.
+\begin{enumerate}
+\item Tirar un rayo horizontal a la derecha de $q$ tal que intersecte la frontera de $P$. Si $q$ se encuentra fuera
+  de $P$ se preprocesa en base a dos casos: (1) $q$ está fuera de la envolvente convexa de $P$, (2) $q$ está dentro
+  de la envonlvente convexa de $P$. Este preprocesamiento se realiza en $\mathcal{O}(n)$.
+\item Realizamos un recorrido con una pila para realizar \textit{backtraking} desde el punto de intersección encontrado.
+\item Todo punto contenido en los segmentos de la frontera de $P$ entran a la pila \textit{si y sólo si} es un punto
+  visible desde $q$.
+\item Si aplicamos retroceso, entonces lanzaremos un rayo desde el punto de iteración (el punto dónde va la ejecución)
+  e incluiremos la intersección de este rayo con la frontera de $P$ cómo un punto construido a la pila.
+\item Al final, la pila contiene  los puntos que forman el polígono de visibilidad de $P$ desde $q$.
+\end{enumerate}
+\textit{Análisis de complejidad.}
+\begin{enumerate}
+\item Lanzar un rayo desde $q$ hacia su derecha lo realizamos en $\mathcal{O}(1)$.
+\item Encontrar la intersección del rayo con la frontera de $P$ es equivalente a realizar una
+  búsqueda binaria y se puede hacer en $\mathcal{O}(\log n)$.
+\item Recorrer nuestro polígono con retroceso lo realizamos a lo más en un orden $\mathcal{O}(n)$.
+\item Concluimos con una complejidad en $\mathcal{O}(n)$.
+\end{enumerate}

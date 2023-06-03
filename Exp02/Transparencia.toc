@@ -1,0 +1,13 @@
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Polígono de visibilidad.}{3}{0}{1}
+\beamer@sectionintoc {2}{Algoritmo de Bhattacharya.}{17}{0}{2}
+\beamer@subsectionintoc {2}{1}{Introducción.}{17}{0}{2}
+\beamer@subsectionintoc {2}{2}{Ejecución.}{19}{0}{2}
+\beamer@subsectionintoc {2}{3}{Análisis de complejidad.}{31}{0}{2}
+\beamer@sectionintoc {3}{Algoritmo de Lee.}{32}{0}{3}
+\beamer@subsectionintoc {3}{1}{Introducción.}{32}{0}{3}
+\beamer@subsectionintoc {3}{2}{Ejecución.}{33}{0}{3}
+\beamer@subsectionintoc {3}{3}{Análisis de complejidad.}{75}{0}{3}
+\beamer@subsectionintoc {3}{4}{Casos especiales.}{76}{0}{3}
+\beamer@sectionintoc {4}{Fin.}{89}{0}{4}
